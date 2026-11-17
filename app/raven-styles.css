@@ -1,0 +1,622 @@
+.raven-page,
+html[data-raven-site] {
+  /* Near-black, Crayola blue and Alice blue */
+  --raven-ink: #080708;
+  --raven-white: #ffffff;
+  --raven-paper: #edf5fc;
+  --raven-grey: #9a9a9a;
+  --raven-muted: #5e5e5e;
+  --raven-accent: #2176ff;
+  --raven-accent-light: #5c9bff;
+  --raven-accent-deep: #0f52c9;
+  --raven-surface: var(--raven-paper);
+  --raven-grad: linear-gradient(120deg, var(--raven-accent-light) 0%, var(--raven-accent) 50%, var(--raven-accent-deep) 100%);
+}
+
+/* Headings and body share one family (Schibsted Grotesk, loaded in layout.tsx). Point the body
+   variable at a different next/font family there to split them. */
+.raven-page {
+  --font-raven-body: var(--font-raven-head);
+}
+
+.raven-page {
+  background-color: var(--raven-paper);
+  color: var(--raven-ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.raven-page,
+.raven-page * {
+  font-family: var(--font-raven-body);
+}
+
+.raven-page h1,
+.raven-page h2,
+.raven-page h3,
+.raven-page h1 *,
+.raven-page h2 *,
+.raven-page h3 *,
+.raven-page .font-raven-head,
+.raven-page .font-raven-head * {
+  font-family: var(--font-raven-head);
+}
+
+.raven-page .font-raven-body {
+  font-family: var(--font-raven-body);
+}
+
+.raven-page h1,
+.raven-page h2,
+.raven-page h3 {
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.raven-page h3 {
+  font-weight: 400;
+}
+
+.raven-page h3 {
+  line-height: 1.2;
+}
+
+
+.raven-page h1,
+.raven-page .text-128 {
+  font-size: 6vw;
+  letter-spacing: -0.1vw;
+}
+
+.raven-page h2 {
+  font-size: 4vw;
+  letter-spacing: -0.2vw;
+}
+
+.raven-page .text-64 {
+  font-size: 3.4vw;
+  letter-spacing: -0.2vw;
+}
+
+.raven-page .text-40 {
+  font-size: 2.3vw;
+  letter-spacing: -0.1vw;
+}
+
+.raven-page .text-30 {
+  font-size: 1.6vw;
+}
+
+.raven-page .text-28 {
+  font-size: 1.4vw;
+}
+
+.raven-page .text-24 {
+  font-size: 1.2vw;
+}
+
+.raven-page .text-22 {
+  /* Floors keep small text readable on narrow laptops, where the vw size alone gets tiny */
+  font-size: max(14px, 1.1vw);
+}
+
+.raven-page .text-14 {
+  font-size: max(12px, 0.9vw);
+}
+
+.raven-page .raven-display {
+  font-size: 7vw;
+  line-height: 1;
+  letter-spacing: -0.2vw;
+}
+
+.raven-page .raven-display-xl {
+  font-size: 9vw;
+  line-height: 0.9;
+  letter-spacing: -0.3vw;
+}
+
+.raven-page .raven-error-code {
+  font-size: 22vw;
+  line-height: 0.8;
+  letter-spacing: -1vw;
+}
+
+.raven-page .raven-registered {
+  font-size: 40%;
+}
+
+.raven-page .bg-raven-accent {
+  background-color: var(--raven-accent);
+}
+
+.raven-page .text-raven-accent {
+  color: var(--raven-accent);
+}
+
+.raven-page .text-raven-accent-deep {
+  color: var(--raven-accent-deep);
+}
+
+.raven-page .bg-raven-grad {
+  background-image: var(--raven-grad);
+}
+
+.raven-page .bg-raven-ink {
+  background-color: var(--raven-ink);
+}
+
+.raven-page .text-raven-ink {
+  color: var(--raven-ink);
+}
+
+.raven-page .bg-raven-paper {
+  background-color: var(--raven-paper);
+}
+
+.raven-page .text-raven-paper {
+  color: var(--raven-paper);
+}
+
+.raven-page .text-raven-muted {
+  color: var(--raven-muted);
+}
+
+.raven-page .bg-raven-surface {
+  background-color: var(--raven-surface);
+}
+
+.raven-page .raven-container {
+  padding-inline: 5vw;
+}
+
+.raven-page .raven-section {
+  padding-block: 8%;
+}
+
+.raven-page .raven-mask-line {
+  display: block;
+  padding-block: 0.5vw;
+  margin-block: -0.5vw;
+  -webkit-mask-image: linear-gradient(150deg, var(--raven-ink) 33.3%, transparent 66.6%);
+  mask-image: linear-gradient(150deg, var(--raven-ink) 33.3%, transparent 66.6%);
+  -webkit-mask-size: 500% 100%;
+  mask-size: 500% 100%;
+  -webkit-mask-position: 100% 100%;
+  mask-position: 100% 100%;
+}
+
+.raven-page .raven-mask-lines:has(> .raven-mask-line) {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keyboard focus ring for links and buttons, in the brand blue rather than the browser's own
+   colour. The light accent stays visible on both the mist paper and the dark panels. */
+.raven-page :is(a, button, summary, [role="button"]):focus-visible {
+  outline: 0.1vw solid var(--raven-accent-light);
+  outline-offset: 0.2vw;
+}
+
+.raven-page ::selection {
+  background-color: var(--raven-accent);
+  color: var(--raven-white);
+}
+
+.raven-page ::-moz-selection {
+  background-color: var(--raven-accent);
+  color: var(--raven-white);
+}
+
+html[data-raven-site],
+html[data-raven-site] body {
+  background-color: var(--raven-paper);
+  scrollbar-color: var(--raven-accent) transparent;
+  scrollbar-width: thin;
+}
+
+/* No scrolling while the Home loader plays (set and cleared by the stack loader). The gutter
+   stays reserved so the page doesn't shift when the scrollbar comes back. */
+html[data-raven-loading] {
+  overflow: hidden !important;
+  scrollbar-gutter: stable;
+  overscroll-behavior: none;
+}
+
+html[data-raven-site] ::-webkit-scrollbar {
+  width: 0.6vw;
+  height: 0.9vh;
+}
+
+html[data-raven-site] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html[data-raven-site] ::-webkit-scrollbar-thumb {
+  background-color: var(--raven-accent);
+  border-radius: 100vw;
+}
+
+.raven-page [data-raven-journal-slider] {
+  scrollbar-width: none;
+}
+
+html[data-raven-site] [data-raven-journal-slider]::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.raven-page .raven-hero-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./assets/pictures/shared/grain.webp") repeat;
+  background-size: 16.7vw;
+  opacity: 7%;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.raven-page .raven-hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  animation: raven-blob-drift var(--dur, 40s) cubic-bezier(0.8, 0, 0.2, 1) infinite alternate;
+  animation-delay: var(--delay, 0s);
+}
+
+.raven-page .raven-hero-blob-glow {
+  left: calc(72% - 36vmax);
+  top: calc(30% - 36vmax);
+  width: 72vmax;
+  height: 72vmax;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--raven-accent-light) 30%, var(--raven-white)) 0%,
+    color-mix(in srgb, var(--raven-accent-light) 80%, var(--raven-white)) 26%,
+    color-mix(in srgb, var(--raven-accent-light) 75%, transparent) 52%,
+    color-mix(in srgb, var(--raven-accent) 0%, transparent) 100%
+  );
+  --dx: -16vw;
+  --dy: 12vh;
+  --s0: 0.9;
+  --s1: 1.1;
+  --dur: 11s;
+}
+
+.raven-page .raven-hero-blob-amber {
+  left: calc(30% - 32vmax);
+  top: calc(22% - 32vmax);
+  width: 64vmax;
+  height: 64vmax;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--raven-accent-light) 75%, transparent),
+    color-mix(in srgb, var(--raven-accent) 0%, transparent)
+  );
+  --dx: 24vw;
+  --dy: 16vh;
+  --s0: 1.1;
+  --s1: 0.8;
+  --dur: 14s;
+  --delay: -5s;
+}
+
+.raven-page .raven-hero-blob-fire {
+  left: calc(58% - 40vmax);
+  top: calc(80% - 40vmax);
+  width: 80vmax;
+  height: 80vmax;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--raven-accent) 80%, transparent),
+    color-mix(in srgb, var(--raven-accent-deep) 0%, transparent)
+  );
+  --dx: -26vw;
+  --dy: -18vh;
+  --s0: 0.9;
+  --s1: 1.1;
+  --dur: 16s;
+  --delay: -9s;
+}
+
+.raven-page .raven-hero-blob-shade {
+  left: calc(4% - 45vmax);
+  top: calc(75% - 45vmax);
+  width: 90vmax;
+  height: 90vmax;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--raven-accent-deep) 12%, var(--raven-ink) 85%),
+    color-mix(in srgb, var(--raven-ink) 0%, transparent)
+  );
+  --dx: 12vw;
+  --dy: -14vh;
+  --s0: 1;
+  --s1: 1.2;
+  --dur: 13s;
+  --delay: -3s;
+}
+
+.raven-page .raven-hero-light {
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--raven-accent-light) 55%, var(--raven-white) 40%),
+    color-mix(in srgb, var(--raven-accent-light) 22%, transparent) 48%,
+    transparent
+  );
+}
+
+@keyframes raven-blob-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(var(--s0, 1));
+  }
+  to {
+    transform: translate3d(var(--dx, 0), var(--dy, 0), 0) scale(var(--s1, 1));
+  }
+}
+
+@keyframes raven-scroll-cue {
+  0%,
+  100% {
+    transform: translateY(-0.2vh);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(0.3vh);
+    opacity: 1;
+  }
+}
+
+/* The 404 stands alone: no footer CTA or footer. CSS, so it holds before hydration too */
+html[data-raven-404] [data-raven-chrome] {
+  display: none;
+}
+/* A light band sweeping across accent text, used on the 404 */
+.raven-page .raven-shimmer {
+  background-image: linear-gradient(
+    110deg,
+    var(--raven-accent) 0%,
+    var(--raven-accent) 38%,
+    color-mix(in srgb, var(--raven-accent-light), #fff 60%) 50%,
+    var(--raven-accent) 62%,
+    var(--raven-accent) 100%
+  );
+  /* 300% wide so the band starts and ends fully off the text, keeping the loop seamless */
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: raven-shimmer 5s linear infinite;
+}
+
+@keyframes raven-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .raven-page .raven-hero-blob,
+  .raven-page .raven-scroll-cue-arrow,
+  .raven-page .raven-shimmer {
+    animation: none;
+  }
+}
+
+.raven-page .raven-scroll-cue-arrow {
+  animation: raven-scroll-cue 2.4s cubic-bezier(0.8, 0, 0.2, 1) infinite;
+}
+
+@keyframes raven-globe-ping {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* The accent word is filled with the brand gradient. The side padding (cancelled by negative
+   margins) gives the italic's overhang room inside the painted area so it isn't clipped. */
+.raven-page .raven-accent {
+  background-image: var(--raven-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  padding-inline: 0.5vw;
+  margin-inline: -0.5vw;
+}
+
+/* Matches Tailwind's max-lg (below 1024px) */
+@media (max-width: 1023.98px) {
+  .raven-page h1,
+  .raven-page .text-128 {
+    font-size: 9vw;
+    letter-spacing: -0.4vw;
+  }
+
+  .raven-page h2,
+  .raven-page .text-64 {
+    font-size: 6vw;
+    letter-spacing: -0.2vw;
+  }
+
+  .raven-page .text-40 {
+    font-size: 4.6vw;
+    letter-spacing: -0.1vw;
+  }
+
+  .raven-page h3.text-30 {
+    font-size: 3.8vw;
+  }
+
+  .raven-page h3.text-28 {
+    font-size: 3.4vw;
+  }
+
+  .raven-page .text-30 {
+    font-size: 3.6vw;
+  }
+
+  .raven-page .text-28 {
+    font-size: 3.2vw;
+  }
+
+  .raven-page .text-24 {
+    font-size: 2.8vw;
+  }
+
+  .raven-page .text-22 {
+    font-size: 2.5vw;
+  }
+
+  .raven-page .text-14 {
+    font-size: 1.9vw;
+  }
+
+  .raven-page .raven-display {
+    font-size: 10vw;
+  }
+
+  .raven-page .raven-display-xl {
+    font-size: 12vw;
+  }
+
+  .raven-page .raven-error-code {
+    font-size: 22vw;
+  }
+
+  .raven-page .raven-container {
+    padding-inline: 6vw;
+  }
+
+  .raven-page .raven-mask-line {
+    padding-block: 0.6vw;
+    margin-block: -0.6vw;
+  }
+
+  .raven-page .raven-section {
+    padding-block: 12%;
+  }
+}
+
+/* Matches Tailwind's max-md (below 768px) */
+@media (max-width: 767.98px) {
+  .raven-page h1,
+  .raven-page .text-128 {
+    font-size: 11.5vw;
+    letter-spacing: -0.5vw;
+  }
+
+  .raven-page h2,
+  .raven-page .text-64 {
+    font-size: 10.5vw;
+    letter-spacing: -0.4vw;
+  }
+
+  .raven-page .text-40 {
+    font-size: 6.8vw;
+    letter-spacing: -0.2vw;
+  }
+
+  .raven-page h3.text-30 {
+    font-size: 6.2vw;
+  }
+
+  .raven-page h3.text-28 {
+    font-size: 5.4vw;
+  }
+
+  .raven-page .text-30 {
+    font-size: 5.6vw;
+  }
+
+  .raven-page .text-28 {
+    font-size: 4.8vw;
+  }
+
+  .raven-page .text-24 {
+    font-size: 4.4vw;
+  }
+
+  .raven-page .text-22 {
+    font-size: 4.2vw;
+  }
+
+  .raven-page .text-14 {
+    font-size: 3.3vw;
+  }
+
+  .raven-page .raven-display {
+    font-size: 13vw;
+  }
+
+  .raven-page .raven-display-xl {
+    font-size: 15vw;
+  }
+
+  .raven-page .raven-error-code {
+    font-size: 38vw;
+  }
+
+
+  .raven-page .raven-container {
+    padding-inline: 7vw;
+  }
+
+  .raven-page .raven-mask-line {
+    padding-block: 1vw;
+    margin-block: -1vw;
+  }
+
+  .raven-page .raven-section {
+    padding-block: 15%;
+  }
+}
+
+/* An italic serif word inside a grotesk headline. Two classes beat the
+   ".raven-page h2 *" font rule above. */
+.raven-page .raven-accent,
+.raven-page .raven-accent *,
+.raven-page .font-raven-serif {
+  font-family: var(--font-raven-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+@keyframes raven-loader-rise {
+  from {
+    opacity: 0;
+    translate: 0 8vh;
+    scale: 0.9;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+@keyframes raven-loader-fade {
+  from {
+    opacity: 0;
+    translate: 0 2vh;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
